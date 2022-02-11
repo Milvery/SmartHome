@@ -1,0 +1,1 @@
+cmd_/home/ubuntu/newdisk/smart_home_item/motor/Module.symvers := sed 's/ko$$/o/' /home/ubuntu/newdisk/smart_home_item/motor/modules.order | scripts/mod/modpost -m  -E  -o /home/ubuntu/newdisk/smart_home_item/motor/Module.symvers -e -i Module.symvers   -T -

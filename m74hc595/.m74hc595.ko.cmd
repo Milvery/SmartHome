@@ -1,0 +1,1 @@
+cmd_/home/ubuntu/newdisk/smart_home_item/m74hc595/m74hc595.ko := arm-linux-gnueabihf-ld -r  -EL  --build-id=sha1  -T scripts/module.lds -o /home/ubuntu/newdisk/smart_home_item/m74hc595/m74hc595.ko /home/ubuntu/newdisk/smart_home_item/m74hc595/m74hc595.o /home/ubuntu/newdisk/smart_home_item/m74hc595/m74hc595.mod.o;  true

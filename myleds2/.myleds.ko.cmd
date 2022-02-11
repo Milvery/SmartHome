@@ -1,0 +1,1 @@
+cmd_/home/ubuntu/newdisk/smart_home_item/myleds2/myleds.ko := arm-linux-gnueabihf-ld -r  -EL  --build-id=sha1  -T scripts/module.lds -o /home/ubuntu/newdisk/smart_home_item/myleds2/myleds.ko /home/ubuntu/newdisk/smart_home_item/myleds2/myleds.o /home/ubuntu/newdisk/smart_home_item/myleds2/myleds.mod.o;  true

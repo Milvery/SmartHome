@@ -1,0 +1,1 @@
+cmd_/home/ubuntu/newdisk/smart_home_item/fan-gpio/modules.order := {   echo /home/ubuntu/newdisk/smart_home_item/fan-gpio/myfan.ko; :; } | awk '!x[$$0]++' - > /home/ubuntu/newdisk/smart_home_item/fan-gpio/modules.order

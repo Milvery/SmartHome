@@ -1,0 +1,1 @@
+cmd_/home/ubuntu/newdisk/smart_home_item/mybuzzer-ok/mybuzzer.ko := arm-linux-gnueabihf-ld -r  -EL  --build-id=sha1  -T scripts/module.lds -o /home/ubuntu/newdisk/smart_home_item/mybuzzer-ok/mybuzzer.ko /home/ubuntu/newdisk/smart_home_item/mybuzzer-ok/mybuzzer.o /home/ubuntu/newdisk/smart_home_item/mybuzzer-ok/mybuzzer.mod.o;  true

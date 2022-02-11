@@ -1,0 +1,1 @@
+cmd_/home/ubuntu/newdisk/smart_home_item/mybuzzer-ok/mybuzzer.mod := { echo  /home/ubuntu/newdisk/smart_home_item/mybuzzer-ok/mybuzzer.o;  echo; } > /home/ubuntu/newdisk/smart_home_item/mybuzzer-ok/mybuzzer.mod

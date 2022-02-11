@@ -1,0 +1,1 @@
+cmd_/home/ubuntu/newdisk/smart_home_item/fan-pwm2/myfan.ko := arm-linux-gnueabihf-ld -r  -EL  --build-id=sha1  -T scripts/module.lds -o /home/ubuntu/newdisk/smart_home_item/fan-pwm2/myfan.ko /home/ubuntu/newdisk/smart_home_item/fan-pwm2/myfan.o /home/ubuntu/newdisk/smart_home_item/fan-pwm2/myfan.mod.o;  true

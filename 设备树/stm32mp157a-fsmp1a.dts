@@ -1,0 +1,111 @@
+/dts-v1/;
+#include "stm32mp157.dtsi"
+#include "stm32mp15xa.dtsi"
+#include "stm32mp15-pinctrl.dtsi"
+#include "stm32mp15xxac-pinctrl.dtsi"
+#include "stm32mp15xx-fsmp1x.dtsi" 
+/ {
+	model = "HQYJ STM32MP157 FSMP1A Discovery Board";
+	compatible = "st,stm32mp157a-dk1", "st,stm32mp157";
+
+	aliases {
+		serial0 = &uart4;
+		serial5 = &usart3;
+	};
+
+	chosen {
+		stdout-path = "serial0:115200n8";
+	};
+
+	reserved-memory {
+gpu_reserved: gpu@da000000 {
+				  reg = <0xda000000 0x4000000>;
+				  no-map;
+			  };
+
+optee_memory: optee@0xde000000 {
+				  reg = <0xde000000 0x02000000>;
+				  no-map;
+			  };
+	};
+	
+	mynode@0x12345678{
+		strings = "hello","21081";
+		uint    = <0xaabbccdd 0x1234>;
+		barray  = [00 0c 29 7b f9 be];
+		mixed   = "hello",<0x112233>,[11];
+	};	
+
+	myleds{
+		compatible = "hqyj,leds";
+		core-leds{
+			led1 = <&gpioz 5 0>;
+			led2 = <&gpioz 6 0>;
+			led3 = <&gpioz 7 0>;
+		};
+		extend-leds{
+			led1 = <&gpioe 10 0>;
+			led2 = <&gpiof 10 0>;
+			led3 = <&gpioe 8 0>;
+
+		};
+	};
+	keys{
+		interrupt-parent = <&gpiof>;
+		interrupts = <9 0>,<7 0>,<8 0>;
+	};
+	key_led{
+		compatible = "hqyj,key_led";
+		led1 = <&gpioe 10 0>;
+		interrupt-parent = <&gpiof>;
+		interrupts = <9 0>,<7 0>,<8 0>;
+	};
+	myplatform{
+		compatible = "hqyj,hello2";
+		beef1 = <&gpiob 6 0>;	
+		led1 = <&gpioe 10 0>;
+		led2 = <&gpiof 10 0>;
+		led3 = <&gpioe 8 0>;
+		led4 = <&gpioz 5 0>;
+		led5 = <&gpioz 6 0>;
+		led6 = <&gpioz 7 0>;
+
+		reg = <0x12345678 0x40>;
+		interrupt-parent = <&gpiof>;
+		interrupts = <9 0>;
+	};
+};
+
+&optee {
+	status = "okay";
+};
+
+&i2c1 {
+	pinctrl-names = "default", "sleep";
+	pinctrl-0 = <&i2c1_pins_b>;     //===>工作状态复用功能
+	pinctrl-1 = <&i2c1_sleep_pins_b>;//===>设置管脚休眠
+	i2c-scl-rising-time-ns = <100>; //上升沿的时间
+	i2c-scl-falling-time-ns = <7>;  //下降沿的时间
+	status = "okay";                //控制器使能
+	/delete-property/dmas;          //不使用dma功能
+	/delete-property/dma-names;
+
+	si7006@40 {                    //si7006节点
+		compatible = "hqyj,si7006";
+		reg = <0x40>;
+	};
+};
+
+&spi4{
+	pinctrl-names = "default", "sleep";
+	pinctrl-0 = <&spi4_pins_b>;
+	pinctrl-1 = <&spi4_sleep_pins_b>;     
+	cs-gpios = <&gpioe 11 0>;
+	status = "okay";
+
+	m74hc595@0{
+		compatible = "hqyj,m74hc595";
+		reg = <0>;
+		spi-max-frequency = <10000000>; //10Mhz
+	};
+};

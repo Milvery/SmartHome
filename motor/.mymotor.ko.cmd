@@ -1,0 +1,1 @@
+cmd_/home/ubuntu/newdisk/smart_home_item/motor/mymotor.ko := arm-linux-gnueabihf-ld -r  -EL  --build-id=sha1  -T scripts/module.lds -o /home/ubuntu/newdisk/smart_home_item/motor/mymotor.ko /home/ubuntu/newdisk/smart_home_item/motor/mymotor.o /home/ubuntu/newdisk/smart_home_item/motor/mymotor.mod.o;  true

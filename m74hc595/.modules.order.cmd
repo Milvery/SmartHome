@@ -1,0 +1,1 @@
+cmd_/home/ubuntu/newdisk/smart_home_item/m74hc595/modules.order := {   echo /home/ubuntu/newdisk/smart_home_item/m74hc595/m74hc595.ko; :; } | awk '!x[$$0]++' - > /home/ubuntu/newdisk/smart_home_item/m74hc595/modules.order
